@@ -9,14 +9,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.Arrays;
 
-import com.ltp.demo.exception.ErrorResponse;
+import com.example.demo.exception.ErrorResponse;
 
 @ControllerAdvice
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Object> handleNotFoundException(NotFoundException ex) {
-        ErrorResponse errorResponse = new com.ltp.demo.exception.ErrorResponse(Arrays.asList(ex.getLocalizedMessage()));
+        ErrorResponse errorResponse = new ErrorResponse(Arrays.asList(ex.getLocalizedMessage()));
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
