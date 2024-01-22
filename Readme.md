@@ -56,6 +56,26 @@ or
 ```
 
 **Remark**: Please make sure your running at Demo1Application.java
+## Entity (Database schema)
+
+#### User entity
+
+| Parameter | Type     |Json| Description                       |
+| :-------- | :------- |:-----| :-------------------------------- |
+| `id`      | `long` | id| user id |
+| `firstName`      | `string` | first_name| first name of user|
+| `lastName`      | `string` | last_name| last name of user|
+| `age`      | `int` | age| age of user|
+
+#### Address entity
+| Parameter | Type     |Json| Description                       |
+| :-------- | :------- |:-----| :-------------------------------- |
+| `id`      | `long` | id| address id |
+| `street`      | `string` | street| -|
+| `city`      | `string` | city| -|
+| `zipCode`      | `int` | zip_code|-|
+| `user`      | `int` | user| user id which is relate with user|
+
 ## User API Reference
 
 #### Get all users
@@ -109,3 +129,58 @@ or
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of user to fetch |
+
+## Address API Reference
+
+#### Get all address
+
+```http
+  GET /apis/v1/address
+```
+
+#### Get address by id
+
+```http
+  GET /api/address/{id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of address to fetch |
+
+
+#### Create address
+
+```http
+  POST /api/address
+```
+
+| Request body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `street`      | `string` | **Required**. |
+| `city`      | `string` | **Required**.  |
+| `zip_code`      | `string` | **Required**.  |
+| `user`      | `int` | **Required**.  user id of user entity|
+
+#### Update address by id
+```http
+  PUT /api/address/{id}
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of address to fetch |
+
+| Request body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `street`      | `string` | **Required**. |
+| `city`      | `string` | **Required**.  |
+| `zip_code`      | `string` | **Required**.  |
+| `user`      | `int` | **Required**.  user id of user entity|
+
+#### Delete address by id
+```http
+  DELETE /api/address/{id}
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of address to fetch |
